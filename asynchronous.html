@@ -96,21 +96,31 @@
         });
       };
 
-      getIDs
-        .then(IDs => {
-          console.log(IDs);
-          return getrecipe(IDs[2]);
-        })
-        .then(recipe => {
-          console.log(recipe);
-          return getRelated("Fahad");
-        })
-        .then(recipe => {
-          console.log(recipe);
-        })
-        .catch(error => {
-          console.log("Error");
-        });
+      // getIDs
+      //   .then(IDs => {
+      //     console.log(IDs);
+      //     return getrecipe(IDs[2]);
+      //   })
+      //   .then(recipe => {
+      //     console.log(recipe);
+      //     return getRelated("Fahad");
+      //   })
+      //   .then(recipe => {
+      //     console.log(recipe);
+      //   })
+      //   .catch(error => {
+      //     console.log("Error");
+      //   });
+
+      async function getrecipesAW() {
+        const IDs = await getIDs;
+        console.log(IDs);
+        const recipe = await getrecipe(IDs[2]);
+        console.log(recipe);
+        const related = await getRelated("Fahad Shaikh");
+        console.log(related);
+      }
+      getrecipesAW();
     </script>
   </body>
 </html>
